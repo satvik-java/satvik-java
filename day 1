@@ -1,0 +1,82 @@
+1)reversse a word 
+public class WordReverser {
+    public static void main(String[] args) {
+        String word = "akhil";
+        String reversedWord = reverseWord(word);
+        System.out.println("Reversed word: " + reversedWord);
+    }
+
+    public static String reverseWord(String word) {
+        String reversedWord = "";
+        for (int i = word.length() - 1; i >= 0; i--) {
+            reversedWord += word.charAt(i);
+        }
+        return reversedWord;
+    } 
+}
+                              input:akhil
+                              output:lihka
+2)string to integer
+public class StringToInteger {
+    public static void main(String[] args) {
+        String str = "12345";
+        int num = Integer.parseInt(str);                                        INPUT:12345
+        System.out.println("Converted Integer: " + num);                        OUTPUT:12345    
+    }}
+
+
+
+3)vowels
+public class VowelCounter {
+    public static void main(String[] args) {
+        String statement = "This is a sample statement to count vowels.";
+        int vowelsCount = countVowels(statement);
+        System.out.println("Number of vowels in the statement: " + vowelsCount);
+    }
+    public static int countVowels(String str) {
+        int count = 0;
+        for (int i = 0; i < str.length(); i++) {
+            char ch = Character.toLowerCase(str.charAt(i));
+            if (ch == 'a'||ch=='e'||ch=='i'||ch=='o'||ch =='u'){
+                count++;
+            }}
+        return count;
+    }}
+
+
+4)factorial
+public class Factorial {
+    public static void main(String[] args) {
+        int num = 5;
+        int factorial = 1;
+        for(int i = 1; i <= num; i++) {
+            factorial *= i;
+        }
+        System.out.println("Factorial of " + num + " is " + factorial);
+    }}
+
+
+
+6)multiplication
+public class Multiplication {
+    public static void main(String[] args) {
+        int num1 = 5;
+        int num2 = 10;
+
+        int result = num1 * num2;
+
+        System.out.println("Multiplication Result: " + result);
+    }
+}
+
+
+7)validity checker
+public class CharacterNumberSeparator {
+    public static void main(String[] args) {
+        String input = "Hello123World456";
+        String characters = input.replaceAll("[^a-zA-Z]", "");
+        String numbers = input.replaceAll("[^0-9]", "");
+        System.out.println("Characters: " + characters);                      input : santhosh11435
+        System.out.println("Numbers: " + numbers);                            output :santhosh
+    }                                                                                :11435
+}
