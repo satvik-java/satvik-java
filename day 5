@@ -1,0 +1,40 @@
+public class OverloadExample {
+
+    public void display(int a) {
+        System.out.println("Argument: " + a);
+    }
+
+    public void display(int a, int b) {
+        System.out.println("Arguments: " + a + ", " + b);
+    }
+
+    public void display(double a) {
+        System.out.println("Argument: " + a);
+    }
+
+    public static void main(String[] args) {
+        OverloadExample obj = new OverloadExample();
+        obj.display(10);
+        obj.display(10, 20);
+        obj.display(10.5);
+    }
+}
+2.
+public class VarargsExample {
+    public void display(int... numbers) {
+        for (int number : numbers) {
+            System.out.print(number + " ");
+        }
+        System.out.println();
+    }
+
+    public void display(int a, int b) {
+        System.out.println("Arguments: " + a + ", " + b);
+    }
+
+    public static void main(String[] args) {
+        VarargsExample obj = new VarargsExample();
+        obj.display(1, 2, 3, 4, 5); 
+        obj.display(10, 20);       
+    }
+}
