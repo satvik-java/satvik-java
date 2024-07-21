@@ -1,0 +1,275 @@
+1.Write java code for creating 3 methods called even, odd and 
+prime in parent class and override them from child class. The 
+parent class should print 1 to 20 range in all method, but child 
+print 1 to 30 array range in all methods. And access all the 
+methods using derived class object
+
+class Parent {
+    public void even() {
+        System.out.println("Even numbers from 1 to 20:");
+        for (int i = 1; i <= 20; i++) {
+            if (i % 2 == 0) {
+                System.out.print(i + " ");
+            }
+        }
+        System.out.println();
+    }
+
+    public void odd() {
+        System.out.println("Odd numbers from 1 to 20:");
+        for (int i = 1; i <= 20; i++) {
+            if (i % 2 != 0) {
+                System.out.print(i + " ");
+            }
+        }
+        System.out.println();
+    }
+
+    public void prime() {
+        System.out.println("Prime numbers from 1 to 20:");
+        for (int i = 2; i <= 20; i++) {
+            if (isPrime(i)) {
+                System.out.print(i + " ");
+            }
+        }
+        System.out.println();
+    }
+
+    private boolean isPrime(int num) {
+        if (num <= 1) return false;
+        for (int i = 2; i <= Math.sqrt(num); i++) {
+            if (num % i == 0) return false;
+        }
+        return true;
+    }
+}
+class Child extends Parent {
+    public void even() {
+        System.out.println("Even numbers from 1 to 30:");
+        for (int i = 1; i <= 30; i++) {
+            if (i % 2 == 0) {
+                System.out.print(i + " ");
+            }
+        }
+        System.out.println();
+    }
+    public void odd() {
+        System.out.println("Odd numbers from 1 to 30:");
+        for (int i = 1; i <= 30; i++) {
+            if (i % 2 != 0) {
+                System.out.print(i + " ");
+            }
+        }
+        System.out.println();
+    }
+
+    @Override
+    public void prime() {
+        System.out.println("Prime numbers from 1 to 30:");
+        for (int i = 2; i <= 30; i++) {
+            if (isPrime(i)) {
+                System.out.print(i + " ");
+            }
+        }
+        System.out.println();
+    }
+
+    private boolean isPrime(int num) {
+        if (num <= 1) return false;
+        for (int i = 2; i <= Math.sqrt(num); i++) {
+            if (num % i == 0) return false;
+        }
+        return true;
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        Child child = new Child();
+        
+        child.even();
+        child.odd();
+        child.prime();
+    }
+}
+2.Override a default constructor, which contains a=10,b=15 in java 
+using parametrized constructor which contains a=20,b=25. Create 
+a method called disp(). And call both the constructors associating 
+it with disp()
+
+class Parent {
+    int a;
+    int b;
+
+    public Parent() {
+        a = 10;
+        b = 15;
+    }
+
+    public void disp() {
+        System.out.println("a = " + a + ", b = " + b);
+    }
+}
+
+
+class Child extends Parent {
+
+    public Child(int a, int b) {
+        this.a = 20;
+        this.b = 25;
+    }
+
+    
+    public void disp() {
+        System.out.println("a = " + a + ", b = " + b);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+      
+        Parent parent = new Parent();
+        parent.disp();
+
+        Child child = new Child(20, 25);
+        child.disp();
+    }
+}
+OUT PUT:
+a = 10, b = 15
+a = 20, b = 25
+
+3. Java program to create a Base class with a method called ‘void 
+area(int a, int b)’ which print area of a square. Now override the 
+method from Derived class and make it print area of a rectangle.
+
+class Base {
+    
+    void area(int a, int b) {
+        int area = a * a; 
+        System.out.println("Area of square: " + area);
+    }
+}
+
+class Derived extends Base {
+    void area(int a, int b) {
+        int area = a * b;
+        System.out.println("Area of rectangle: " + area);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+      
+        Base base = new Base();
+        base.area(5, 5); 
+
+        Derived derived = new Derived();
+        derived.area(5, 10); // This will print the area of a rectangle
+    }
+}
+OUT PUT:
+Area of square: 25
+Area of rectangle: 50
+
+4.Write java code to overload a method called ‘int sum(int a, int b)’
+by the 3 ways.
+class Calculator {
+  
+    int sum(int a, int b) {
+        return a + b;
+    }
+
+    int sum(int a, int b, int c) {
+        return a + b + c;
+    }
+
+    double sum(double a, double b) {
+        return a + b;
+    }
+}
+
+
+public class Main {
+    public static void main(String[] args) {
+        Calculator calc = new Calculator();
+        
+        int result1 = calc.sum(10, 20);
+        System.out.println("Sum of 10 and 20: " + result1);
+
+    
+        int result2 = calc.sum(10, 20, 30);
+        System.out.println("Sum of 10, 20, and 30: " + result2);
+
+        double result3 = calc.sum(10.5, 20.5);
+        System.out.println("Sum of 10.5 and 20.5: " + result3);
+    }
+}
+OUT PJUT:
+Sum of 10 and 20: 30
+Sum of 10, 20, and 30: 60
+Sum of 10.5 and 20.5: 31.0
+
+5.Create an interface called Tree and extend 2 classes from it called 
+Branch1 and Branch2. Tree should contain methods fruits(), 
+leaves() and flowers(), these methods contain 2,3,4 parameters respectively
+
+interface Tree {
+    void fruits(String type, int quantity);
+    void leaves(String color, int count, String season);
+    void flowers(String type, String color, int quantity, boolean fragrant);
+}
+
+class Branch1 implements Tree {
+    
+    public void fruits(String type, int quantity) {
+        System.out.println("Branch1 has " + quantity + " " + type + " fruits.");
+    }
+
+  
+    public void leaves(String color, int count, String season) {
+        System.out.println("Branch1 has " + count + " " + color + " leaves in " + season + ".");
+    }
+
+    
+    public void flowers(String type, String color, int quantity, boolean fragrant) {
+        System.out.println("Branch1 has " + quantity + " " + color + " " + type + " flowers that are " + (fragrant ? "fragrant." : "not fragrant."));
+    }
+}
+
+class Branch2 implements Tree {
+    public void fruits(String type, int quantity) {
+        System.out.println("Branch2 has " + quantity + " " + type + " fruits.");
+    }
+
+    public void leaves(String color, int count, String season) {
+        System.out.println("Branch2 has " + count + " " + color + " leaves in " + season + ".");
+    }
+
+    public void flowers(String type, String color, int quantity, boolean fragrant) {
+        System.out.println("Branch2 has " + quantity + " " + color + " " + type + " flowers that are " + (fragrant ? "fragrant." : "not fragrant."));
+    }
+}
+
+
+public class Main {
+    public static void main(String[] args) {
+
+        Tree branch1 = new Branch1();
+        Tree branch2 = new Branch2();
+    
+        branch1.fruits("Apple", 50);
+        branch1.leaves("Green", 200, "Spring");
+        branch1.flowers("Rose", "Red", 100, true);
+
+        branch2.fruits("Orange", 30);
+        branch2.leaves("Yellow", 150, "Autumn");
+        branch2.flowers("Tulip", "Yellow", 80, false);
+    }
+}
+OUT PUT:
+Branch1 has 50 Apple fruits.
+Branch1 has 200 Green leaves in Spring.
+Branch1 has 100 Red Rose flowers that are fragrant.
+Branch2 has 30 Orange fruits.
+Branch2 has 150 Yellow leaves in Autumn.
+Branch2 has 80 Yellow Tulip flowers that are not fragrant.
