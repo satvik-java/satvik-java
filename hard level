@@ -1,0 +1,90 @@
+1	Write a program to print n prime numbers after nth Prime number
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter the value of N:");
+        int n = scanner.nextInt();
+
+        if (n <= 0) {
+            System.out.println("N should be a positive integer.");
+            return;
+        }
+
+        int count = 0;
+        int num = 2;
+
+        while (true) {
+            if (isPrime(num)) {
+                count++;
+                if (count == n) {
+                    System.out.println(n + "rd Prime number is " + num);
+                    break;
+                }
+            }
+            num++;
+        }
+
+        System.out.print(n + " prime numbers after " + num + " are: ");
+        for (int i = 0; i < n; i++) {
+            num++;
+            while (!isPrime(num)) {
+                num++;
+            }
+            System.out.print(num + " ");
+        }
+    }
+
+    public static boolean isPrime(int num) {
+        if (num <= 1) {
+            return false;
+        }
+        for (int i = 2; i <= Math.sqrt(num); i++) {
+            if (num % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+2.	Write a program to print number of factors and to print nth factor of the given numb
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter a number:");
+        int num = scanner.nextInt();
+        System.out.println("Enter the value of N:");
+        int n = scanner.nextInt();
+
+        int count = 0;
+        int factorCount = 0;
+        int nthFactor = 0;
+
+        if (num < 0) {
+            num = -num;
+        }
+
+        for (int i = 1; i <= num; i++) {
+            if (num % i == 0) {
+                factorCount++;
+                count++;
+                if (count == n) {
+                    nthFactor = i;
+                    break;
+                }
+            }
+        }
+
+        if (n > factorCount) {
+            System.out.println("N is greater than the number of factors.");
+        } else {
+            System.out.println("Number of factors = " + factorCount);
+            System.out.println(n + "th factor of " + num + " = " + nthFactor);
+        }
+    }
+}
